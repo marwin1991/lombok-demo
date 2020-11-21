@@ -13,6 +13,14 @@ public class UserController {
 
     private final UserService userService;
 
+    /*
+     * Fun fact from Spring:
+     * Starting with Spring 4.3, if a class, which is configured as a Spring bean,
+     * has only one constructor, the @Autowired annotation can be omitted and Spring
+     * will use that constructor and inject all necessary dependencies
+     *
+     * source: https://stackoverflow.com/questions/41092751/spring-injects-dependencies-in-constructor-without-autowired-annotation
+     */
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
