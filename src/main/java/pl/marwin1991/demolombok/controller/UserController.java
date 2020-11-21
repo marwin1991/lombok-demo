@@ -1,5 +1,6 @@
 package pl.marwin1991.demolombok.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.marwin1991.demolombok.model.User;
@@ -7,6 +8,7 @@ import pl.marwin1991.demolombok.service.UserService;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -33,6 +35,7 @@ public class UserController {
 
     @PostMapping
     public User createUser(@RequestBody User user) {
+        log.info(user.toString());
         return userService.createUser(user);
     }
 }
