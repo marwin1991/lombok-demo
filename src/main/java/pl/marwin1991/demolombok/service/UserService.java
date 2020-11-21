@@ -1,5 +1,7 @@
 package pl.marwin1991.demolombok.service;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.marwin1991.demolombok.model.User;
@@ -7,15 +9,12 @@ import pl.marwin1991.demolombok.repository.UserRepository;
 
 import java.util.List;
 
+@Slf4j
 @Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class UserService {
 
     private final UserRepository userRepository;
-
-    @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public List<User> getUsers() {
         //TODO: converter
@@ -26,6 +25,7 @@ public class UserService {
         //TODO: converter
         user.setId(userRepository.getNextId());
         userRepository.addUser(user);
+        log.info("User added: " + user.toString());
         //TODO: converter
         return user;
     }

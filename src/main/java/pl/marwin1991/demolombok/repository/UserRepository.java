@@ -21,14 +21,16 @@ public class UserRepository {
 
     @PostConstruct
     public void init() {
-        Address address = new Address();
-        address.setPostCode("30-000");
-        address.setCity("Kraków");
-        address.setStreet("ul. Rynek");
-        address.setHouseNumber("13");
-        address.setFlatNumber("23");
-        address.setPostOffice("Kraków");
-        address.setCountry("PL");
+
+        Address address = Address.builder()
+                .postCode("30-000")
+                .city("Kraków")
+                .street("ul. Rynek")
+                .houseNumber("13")
+                .flatNumber("23")
+                .postOffice("Kraków")
+                .country("PL")
+                .build();
 
 
         User user = new User(
