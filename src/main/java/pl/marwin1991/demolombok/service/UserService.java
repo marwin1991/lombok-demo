@@ -18,12 +18,15 @@ public class UserService {
     }
 
     public List<User> getUsers() {
+        //TODO: converter
         return userRepository.getAllUsers();
     }
 
     public User createUser(User user) {
+        //TODO: converter
         user.setId(userRepository.getNextId());
         userRepository.addUser(user);
+        //TODO: converter
         return user;
     }
 
