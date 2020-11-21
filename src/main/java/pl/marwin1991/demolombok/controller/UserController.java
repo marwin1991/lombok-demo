@@ -30,6 +30,7 @@ public class UserController {
 
     @GetMapping
     public List<User> getUsers() {
+        log.info("Wykonano endpoint GET /users");
         return userService.getUsers();
     }
 
